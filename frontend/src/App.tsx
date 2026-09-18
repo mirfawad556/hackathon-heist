@@ -66,7 +66,8 @@ function App() {
     formData.append('model', selectedModel);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/enhance', formData, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await axios.post(`${apiUrl}/api/enhance`, formData, {
         responseType: 'blob',
       });
       
